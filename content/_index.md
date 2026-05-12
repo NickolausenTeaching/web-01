@@ -17,11 +17,16 @@ aliases = [
 ## HTML, CSS, JavaScript
 
 <small>
+
 A cura di Nicholas Magi
+
+`nicholas.magi[at]ispascalcomandini.it`
+
 </small>
 
 <br>
 
+<br>
 {{% pdf %}}
 
 ---
@@ -519,6 +524,12 @@ Più utilizzati
 | di pseudo-elementi           | `E:before`, `E:after`             |
 | di attributi                 | `E[attr]`                       |
 
+<br>
+
+{{% callout %}}
+E ce ne sono tanti altri! [[MDN Docs]](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Selectors)
+{{% /callout %}}
+
 ---
 
 ## Selettori
@@ -572,11 +583,167 @@ In ordine **decrescente** di importanza
 `!important` fornisce **max. priorità**:
 ```css
 p { 
-  font-size: 3px !important 
+  font-size: 3px !important; 
 }
 ```
 {{% /col %}}
 {{% /callout %}}
 {{% /multicol %}}
+
+---
+
+## Specificità dei selettori
+
+Ogni selettore CSS ha una **specificità**, i.e. una quadrupla $(x,y,w,z)$, dove
+- $x$: vale 1 se la dichiarazione dello stile avviene in nell'attributo `style`, 0 altrimenti
+- $y$: numero di **id** specificati nel selettore
+- $w$: numero di **classi**, **attributi** e **pseudo-classi** specificati nel selettore
+- $z$: numero di **elementi** e **pseudo-elementi** specificati nel selettore
+
+<br/> 
+<br/> 
+
+{{% callout %}}
+A parità di Media, Importanza e Origine, avrà precedenza la regola con specificità **maggiore**!
+{{% /callout %}}
+
+---
+
+## Breve esercizio
+
+Quali specificità $(x,y,w,z)$ hanno i seguenti selettori?
+
+<br>
+
+{{% multicol %}}
+{{% col %}}
+```css
+/* #01 */
+li {
+
+}
+
+/* #02 */
+nav ul li:first-line {
+  
+}
+
+/* #03 */
+nav.menu ul.sec li {
+
+}
+
+/* #04 */
+nav ul li a[href=‘/home’] {
+
+}
+
+/* #05 */
+nav#menu ul.sec li#st a {
+
+}
+```
+{{% /col %}}
+{{% col class="d-flex flex-col justify-content-center align-items-center" %}}
+
+<i style="font-size: 4em;" class="my-auto bi bi-patch-question"></i>
+
+{{% /col %}}
+{{% /multicol %}}
+
+---
+
+## Breve esercizio
+
+Quali specificità $(x,y,w,z)$ hanno i seguenti selettori?
+
+<br>
+
+{{% multicol %}}
+{{% col %}}
+```css
+/* #01 */
+li {
+
+}
+
+/* #02 */
+nav ul li:first-line {
+  
+}
+
+/* #03 */
+nav.menu ul.sec li {
+
+}
+
+/* #04 */
+nav ul li a[href=‘/home’] {
+
+}
+
+/* #05 */
+nav#menu ul.sec li#st a {
+
+}
+```
+{{% /col %}}
+{{% col %}}
+
+| **#**  | $x$ | $y$ | $w$ | $z$ | $(x,y,w,z)$ |
+|----|---|---|---|---|-----------|
+| **01** | $0$ | $0$ | $0$ | $1$ | $(0,0,0,1)$ |
+| **02** | $0$ | $0$ | $0$ | $4$ | $(0,0,0,4)$ |
+| **03** | $0$ | $0$ | $2$ | $3$ | $(0,0,2,3)$ |
+| **04** | $0$ | $0$ | $1$ | $4$ | $(0,0,1,4)$ |
+| **05** | $0$ | $2$ | $1$ | $4$ | $(0,2,1,4)$ |
+
+{{% /col %}}
+{{% /multicol %}}
+
+---
+
+## Box Model
+
+![](https://hackernoon.com/hn-images/1*wTfLqr-Og1W5LvUCqV7X-Q.jpeg)
+
+---
+
+<small>
+
+Guida: [CSS-Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
+</small>
+
+<br/>
+
+<img class="w-50" src="imgs/00-basic-terminology.svg" />
+
+## Flexbox
+
+Sistema di **suddivisione** e **distribuzione** dello spazio che favorisce adattabilità alle dimensioni dello schermo, anche quando la dimensione degli elementi da disporre non è conosciuta a priori.
+
+<small>
+
+Impara con le rane: https://flexboxfroggy.com/
+
+</small>
+
+---
+
+## **<i class="bi bi-bootstrap-fill"></i>** Bootstrap
+
+> Framework per lo sviluppo **front-end** *free* e *open-source*.
+
+<br/>
+
+- Sviluppato da <i class="bi bi-twitter"></i> Twitter
+- Applicazioni **responsive** e **mobile-first**
+  - **responsive** := il layout degli elementi si aggiusta al ridimensionamento dello schermo
+  - **mobile-first** := il layout degli elementi è pensato in primis per essere visto da telefono
+
+---
+
+![Bootstrap usage](imgs/bootstrap-usage.png)
 
 {{% /section %}}
