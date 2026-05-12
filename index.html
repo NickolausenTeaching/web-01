@@ -30,8 +30,10 @@
 </div>
 <h2 id="html-css-javascript">HTML, CSS, JavaScript</h2>
 <small>
-A cura di Nicholas Magi
+<p>A cura di Nicholas Magi</p>
+<p><code>nicholas.magi[at]ispascalcomandini.it</code></p>
 </small>
+<br>
 <br>
 <small>
     <a class="d-block" href="?print-pdf&amp;pdfSeparateFragments=false">
@@ -493,6 +495,11 @@ A cura di Nicholas Magi
       </tr>
   </tbody>
 </table>
+<br>
+<div class="callout note">
+    <div class="callout-background py-4 px-5"><div class="callout-content"><p>E ce ne sono tanti altri! <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Selectors">[MDN Docs]</a></p>
+</div></div>
+</div>
 </section><section>
 <h2 id="selettori">Selettori</h2>
 <div class="container-fluid m-0 p-0">
@@ -532,13 +539,180 @@ A cura di Nicholas Magi
 <div class="col "><div class="callout tip">
     <div class="callout-background py-4 px-5"><div class="callout-content"><p><code>!important</code> fornisce <strong>max. priorità</strong>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="nohighlight" data-noescape=""><span style="display:flex;"><span><span style="color:#ff6ac1">p</span> { 
-</span></span><span style="display:flex;"><span>  <span style="color:#ff6ac1">font-size</span>: <span style="color:#ff9f43">3</span><span style="color:#9aedfe">px</span> <span style="color:#78787e">!important</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#ff6ac1">font-size</span>: <span style="color:#ff9f43">3</span><span style="color:#9aedfe">px</span> <span style="color:#78787e">!important</span>; 
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div></div></div>
 </div>
 </div>
 </div>
 </div>
+</section><section>
+<h2 id="specificità-dei-selettori">Specificità dei selettori</h2>
+<p>Ogni selettore CSS ha una <strong>specificità</strong>, i.e. una quadrupla $(x,y,w,z)$, dove</p>
+<ul>
+<li>$x$: vale 1 se la dichiarazione dello stile avviene in nell’attributo <code>style</code>, 0 altrimenti</li>
+<li>$y$: numero di <strong>id</strong> specificati nel selettore</li>
+<li>$w$: numero di <strong>classi</strong>, <strong>attributi</strong> e <strong>pseudo-classi</strong> specificati nel selettore</li>
+<li>$z$: numero di <strong>elementi</strong> e <strong>pseudo-elementi</strong> specificati nel selettore</li>
+</ul>
+<br> 
+<br> 
+<div class="callout note">
+    <div class="callout-background py-4 px-5"><div class="callout-content"><p>A parità di Media, Importanza e Origine, avrà precedenza la regola con specificità <strong>maggiore</strong>!</p>
+</div></div>
+</div>
+</section><section>
+<h2 id="breve-esercizio">Breve esercizio</h2>
+<p>Quali specificità $(x,y,w,z)$ hanno i seguenti selettori?</p>
+<br>
+<div class="container-fluid m-0 p-0">
+    <div class="row "><div class="col "><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="nohighlight" data-noescape=""><span style="display:flex;"><span><span style="color:#78787e">/* #01 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">li</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">/* #02 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">nav</span> <span style="color:#ff6ac1">ul</span> <span style="color:#ff6ac1">li</span>:<span style="color:#ff9f43">first-line</span> {
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">/* #03 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">nav</span>.<span style="color:#f3f99d">menu</span> <span style="color:#ff6ac1">ul</span>.<span style="color:#f3f99d">sec</span> <span style="color:#ff6ac1">li</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">/* #04 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">nav</span> <span style="color:#ff6ac1">ul</span> <span style="color:#ff6ac1">li</span> <span style="color:#ff6ac1">a</span><span style="color:#ff6ac1">[</span><span style="color:#ff6ac1">href</span><span style="color:#ff6ac1">=</span><span style="color:#ff5c57">‘</span><span style="color:#ff6ac1">/</span><span style="color:#ff6ac1">home</span><span style="color:#ff5c57">’</span><span style="color:#ff6ac1">]</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">/* #05 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">nav</span>#menu <span style="color:#ff6ac1">ul</span>.<span style="color:#f3f99d">sec</span> <span style="color:#ff6ac1">li</span>#st <span style="color:#ff6ac1">a</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></div>
+<div class="col d-flex flex-col justify-content-center align-items-center"><p><i style="font-size: 4em;" class="my-auto bi bi-patch-question"></i></p>
+</div>
+</div>
+</div>
+</section><section>
+<h2 id="breve-esercizio-1">Breve esercizio</h2>
+<p>Quali specificità $(x,y,w,z)$ hanno i seguenti selettori?</p>
+<br>
+<div class="container-fluid m-0 p-0">
+    <div class="row "><div class="col "><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="nohighlight" data-noescape=""><span style="display:flex;"><span><span style="color:#78787e">/* #01 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">li</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">/* #02 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">nav</span> <span style="color:#ff6ac1">ul</span> <span style="color:#ff6ac1">li</span>:<span style="color:#ff9f43">first-line</span> {
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">/* #03 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">nav</span>.<span style="color:#f3f99d">menu</span> <span style="color:#ff6ac1">ul</span>.<span style="color:#f3f99d">sec</span> <span style="color:#ff6ac1">li</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">/* #04 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">nav</span> <span style="color:#ff6ac1">ul</span> <span style="color:#ff6ac1">li</span> <span style="color:#ff6ac1">a</span><span style="color:#ff6ac1">[</span><span style="color:#ff6ac1">href</span><span style="color:#ff6ac1">=</span><span style="color:#ff5c57">‘</span><span style="color:#ff6ac1">/</span><span style="color:#ff6ac1">home</span><span style="color:#ff5c57">’</span><span style="color:#ff6ac1">]</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">/* #05 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">nav</span>#menu <span style="color:#ff6ac1">ul</span>.<span style="color:#f3f99d">sec</span> <span style="color:#ff6ac1">li</span>#st <span style="color:#ff6ac1">a</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></div>
+<div class="col "><table>
+  <thead>
+      <tr>
+          <th><strong>#</strong></th>
+          <th>$x$</th>
+          <th>$y$</th>
+          <th>$w$</th>
+          <th>$z$</th>
+          <th>$(x,y,w,z)$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>01</strong></td>
+          <td>$0$</td>
+          <td>$0$</td>
+          <td>$0$</td>
+          <td>$1$</td>
+          <td>$(0,0,0,1)$</td>
+      </tr>
+      <tr>
+          <td><strong>02</strong></td>
+          <td>$0$</td>
+          <td>$0$</td>
+          <td>$0$</td>
+          <td>$4$</td>
+          <td>$(0,0,0,4)$</td>
+      </tr>
+      <tr>
+          <td><strong>03</strong></td>
+          <td>$0$</td>
+          <td>$0$</td>
+          <td>$2$</td>
+          <td>$3$</td>
+          <td>$(0,0,2,3)$</td>
+      </tr>
+      <tr>
+          <td><strong>04</strong></td>
+          <td>$0$</td>
+          <td>$0$</td>
+          <td>$1$</td>
+          <td>$4$</td>
+          <td>$(0,0,1,4)$</td>
+      </tr>
+      <tr>
+          <td><strong>05</strong></td>
+          <td>$0$</td>
+          <td>$2$</td>
+          <td>$1$</td>
+          <td>$4$</td>
+          <td>$(0,2,1,4)$</td>
+      </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section><section>
+<h2 id="box-model">Box Model</h2>
+<p><img src="https://hackernoon.com/hn-images/1*wTfLqr-Og1W5LvUCqV7X-Q.jpeg" alt=""></p>
+</section><section>
+<small>
+<p>Guida: <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">CSS-Tricks</a></p>
+</small>
+<br>
+<img class="w-50" src="imgs/00-basic-terminology.svg">
+<h2 id="flexbox">Flexbox</h2>
+<p>Sistema di <strong>suddivisione</strong> e <strong>distribuzione</strong> dello spazio che favorisce adattabilità alle dimensioni dello schermo, anche quando la dimensione degli elementi da disporre non è conosciuta a priori.</p>
+<small>
+<p>Impara con le rane: <a href="https://flexboxfroggy.com/">https://flexboxfroggy.com/</a></p>
+</small>
+</section><section>
+<h2 id="bootstrap"><strong><i class="bi bi-bootstrap-fill"></i></strong> Bootstrap</h2>
+<blockquote>
+<p>Framework per lo sviluppo <strong>front-end</strong> <em>free</em> e <em>open-source</em>.</p>
+</blockquote>
+<br>
+<ul>
+<li>Sviluppato da <i class="bi bi-twitter"></i> Twitter</li>
+<li>Applicazioni <strong>responsive</strong> e <strong>mobile-first</strong>
+<ul>
+<li><strong>responsive</strong> := il layout degli elementi si aggiusta al ridimensionamento dello schermo</li>
+<li><strong>mobile-first</strong> := il layout degli elementi è pensato in primis per essere visto da telefono</li>
+</ul>
+</li>
+</ul>
+</section><section>
+<p><img src="imgs/bootstrap-usage.png" alt="Bootstrap usage"></p>
 
 </section>
 </section>
