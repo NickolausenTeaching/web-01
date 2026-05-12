@@ -1,7 +1,7 @@
 
 +++
 
-title = "Guide for writing markdown slides"
+title = "Web Intro - HTML, CSS, JS"
 description = "A Hugo theme for creating Reveal.js presentations"
 outputs = ["Reveal"]
 aliases = [
