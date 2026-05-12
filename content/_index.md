@@ -75,8 +75,14 @@ sequenceDiagram
 
 ---
 
-{{% section %}}
+## Dispense di un "vecchio" seminario
 
+"**[React for Dummies / Web Basics](
+https://github.com/Nickolausen/react-for-dummies/tree/master/web-basics)**", corso pomeridiano PNRR **@** I.T.T. "Blaise Pascal"
+
+---
+
+{{% section %}}
 
 <img style="max-width: 128px" class="exclude" src="https://cdn-icons-png.flaticon.com/512/174/174854.png" />
 
@@ -186,7 +192,7 @@ Ogni tag deve essere usato in accordo con il **contenuto che deve rappresentare*
 
 {{% multicol %}}
 {{% col %}}
-```html
+```html { linenos=inline }
 <!DOCTYPE html>
 
 <html>
@@ -295,7 +301,7 @@ https://it.gravatar.com/
 ### Cascading Style Sheet
 - Tecnologia particolarmente odiata, ma comunque **fondamentale** — è *ovunque*;
 - Ha l'importante compito di separare il **contenuto** dalla sua **presentazione**
-    - definisce infatti <mark><b>come</b></mark> un contenuto HTML deve essere presentato
+  - definisce infatti <mark><b>come</b></mark> un contenuto HTML deve essere presentato
 
 <br>
 <br>
@@ -433,5 +439,144 @@ header {
 {{% callout type="success" %}}
 Noi facciamo così!
 {{% /callout %}}
+
+---
+
+## Funzionamento
+- Un foglio di stile si compone di una serie di regole, scritte una dopo l'altra;
+  - queste vengono applicate a **cascata** (non a caso il linguaggio si chiama *Cascade Style Sheet*), 
+    - partendo dall'alto e scendendo in maniera sequenziale fino alla fine del foglio;
+  - logica da tenere a mente per evitare eventuali <mark><b>conflitti</b></mark> tra <mark>diverse regole</mark> applicate ad uno <mark>stesso elemento</mark>;
+
+---
+
+## Sintassi
+
+{{% multicol %}}
+{{% col %}}
+
+### In generale
+```css
+selettore {
+  proprietà: valore;
+}
+```
+{{% /col %}}
+{{% col %}}
+
+### Esempio
+```css
+a[href="https://www.google.com"] {
+  text-decoration: none;
+  color: red;
+  font-weight: bold;
+}
+```
+{{% /col %}}
+{{% /multicol %}}
+
+<table>
+  <thead>
+    <tr>
+      <td>#</td>
+      <td>specifica</td>
+      <td>esempio</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>selettore</code></td>
+      <td>a chi applicare le regole di stile</td>
+      <td><code>div</code>, <code>.nav-link</code>...</td>
+    </tr>
+    <tr>
+      <td><code>proprietà</code></td>
+      <td>caratteristica di stile assegnabile ad un elemento</td>
+      <td><code>margin</code>, <code>padding</code>...</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## Selettori, pt. 01
+Più utilizzati
+| **Tipologia**     | **Selettore**        |
+|---------------|------------------:|
+| universale    | `*`                |
+| di tipo       | `E`                |
+| di prossimità | `E{ ,>,+,~}F`      |
+| di classe     | `E{.,#}main-title` |
+
+---
+
+## Selettori, pt. 02
+
+| **Tipologia**                    | **Selettore**                     |
+|------------------------------|-------------------------------:|
+| di pseudo-classi             | `E:link`, `E:hover`               |
+| di pseudo-classi strutturali | `E:first-child`, `E:nth-child(n)` |
+| di pseudo-elementi           | `E:before`, `E:after`             |
+| di attributi                 | `E[attr]`                       |
+
+---
+
+## Selettori
+{{% multicol %}}
+{{% col %}}
+
+### Elemento HTML
+
+```html
+<div id="provaID"></div>
+```
+{{% /col %}}
+
+{{% col %}}
+
+### Foglio CSS
+
+```css
+div#provaID { 
+  background-color: red; 
+}
+
+div.provaClasse { 
+  background-color: blue; 
+}
+
+div { 
+  background-color: green; 
+}
+```
+{{% /col %}}
+{{% /multicol %}}
+
+> Di quale colore sarà lo sfondo del `div`?
+
+---
+
+## Priorità delle regole
+{{% multicol %}}
+{{% col %}}
+In ordine **decrescente** di importanza
+1. Media
+2. Importanza di una dichiarazione
+3. Origine della dichiarazione
+4. Specificità del selettore
+5. Ordine delle dichiarazioni
+{{% /col %}}
+
+{{% col %}}
+{{% callout type="tip" %}}
+`!important` fornisce **max. priorità**:
+```css
+p { 
+  font-size: 3px !important 
+}
+```
+{{% /col %}}
+{{% /callout %}}
+{{% /multicol %}}
 
 {{% /section %}}
