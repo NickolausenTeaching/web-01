@@ -744,6 +744,71 @@ Impara con le rane: https://flexboxfroggy.com/
 
 ---
 
+<small>
+
+> This diagram shows the percentages of websites using various CSS frameworks. See technologies overview for explanations on the methodologies used in the surveys. Our reports are updated daily.
+
+> How to read the diagram:
+80.7% of the websites use none of the CSS frameworks that we monitor.
+Bootstrap is used by 14.4% of all the websites, that is a CSS framework market share of 74.5%.
+
+</small>
+
 ![Bootstrap usage](imgs/bootstrap-usage.png)
+
+<small class="text-muted">
+
+Sorgente: https://w3techs.com/technologies/overview/css_framework 
+
+(aggiornato al 13/05/2026)
+
+</small>
+
+---
+
+### Killer feature: **grid system**
+
+![alt text](imgs/bootstrap-grid.png)
+
+Spazio divisibile in **12 colonne**, adattabili a seconda della dimensione della **viewport**.
+
+---
+
+## "Installazione"
+
+{{% multicol %}}
+{{% col %}}
+### **#01.** In locale 
+
+![Bootstrap Guide](imgs/bootstrap-guide.png)
+
+<small>
+
+https://getbootstrap.com/docs/5.3/getting-started/download/
+
+</small>
+
+{{% /col %}}
+{{% col %}}
+### **#02.** Tramite CDN 
+
+Aggiungi `<link>` e `<script>` alla pagina HTML
+
+![alt text](imgs/bootstrap-cdn.png)
+
+<small>
+
+https://getbootstrap.com/
+
+</small>
+
+{{% /col %}}
+{{% /multicol %}}
+
+---
+
+### Alternativa per differenziare i siti generati con **Bootstrap**
+
+**Bootswatch** — https://bootswatch.com/
 
 {{% /section %}}
